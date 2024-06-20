@@ -4,209 +4,649 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Herramientas TICS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM5hO4OTIZcQgoozPn01T+9erqI1w+gkE/Yp/N4" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
+    <style>
+        .subject-section {
+            padding-top: 80px; /* Altura del header */
+            margin-top: -80px; /* Altura del header */
+        }
+
+        @media (max-width: 768px) {
+            .subject-section {
+                padding-top: 120px; /* Ajustar para el menú desplegable */
+                margin-top: -120px; /* Ajustar para el menú desplegable */
+            }
+            .desktop-footer {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-footer {
+                display: none;
+            }
+        }
+
+        .sidebar .nav-item {
+            background-color: #3f5666;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar .nav-item .nav-link {
+            color: white;
+        }
+
+        .sidebar .nav-item .nav-link:hover {
+            background-color: #2c3e50;
+        }
+
+        .card img {
+            height: 100px;
+            object-fit: contain;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>EduXplore</h1>
-    </header>
-    <div class="container">
-        <nav class="sidebar">
-            <h2>Asignaturas</h2>
-            <ul>
-                <li><a href="#diseno-digital">Diseño Digital</a></li>
-                <li><a href="#programacion-web">Programación Web</a></li>
-                <li><a href="#base-de-datos">Base de Datos</a></li>
-                <li><a href="#redes">Redes</a></li>
-                <li><a href="#seguridad">Seguridad Informática</a></li>
-                <li><a href="#sistemas-operativos">Sistemas Operativos</a></li>
-                <li><a href="#gestion-de-proyectos">Gestión de Proyectos</a></li>
+    <header class="bg-dark text-white py-3 fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+                <img src="/img/logout.png" alt="Logo" class="me-3" style="height: 40px;">
+                <h1 class="h3 m-0">EduXplore</h1>
+            </div>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                <button class="btn btn-outline-light" type="submit">Buscar</button>
+            </form>
+            <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#diseno-digital"><i class="fas fa-paint-brush"></i> Diseño Digital</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#programacion-web"><i class="fas fa-code"></i> Programación Web</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#base-de-datos"><i class="fas fa-database"></i> Base de Datos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#redes"><i class="fas fa-network-wired"></i> Redes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#seguridad"><i class="fas fa-lock"></i> Seguridad Informática</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#sistemas-operativos"><i class="fas fa-desktop"></i> Sistemas Operativos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#gestion-de-proyectos"><i class="fas fa-project-diagram"></i> Gestión de Proyectos</a>
+                </li>
             </ul>
-        </nav>
-        <main class="main-content">
-            <!-- Diseño Digital -->
-            <section id="diseno-digital" class="subject-section">
-                <h2>Diseño Digital</h2>
-                <div class="tools">
-                    <div class="tool">
-                        <h3>Photoshop</h3>
-                        <p>Herramienta de edición de imágenes.</p>
-                        <a href="https://www.adobe.com/products/photoshop.html" target="_blank">Visitar</a>
-                    </div>
-                    <div class="tool">
-                        <h3>Adobe Illustrator</h3>
-                        <p>Herramienta de diseño vectorial.</p>
-                        <a href="https://www.adobe.com/products/illustrator.html" target="_blank">Visitar</a>
-                    </div>
-                    <div class="tool">
-                        <h3>Videos Tutoriales</h3>
-                        <a href="https://youtu.be/gWuuK12F_lY" target="_blank">Ver Videos</a>
-                    </div>
-                    <div class="tool">
-                        <h3>PDFs</h3>
-                        <a href="https://www.pdfdrive.com/design-pdf-books.html" target="_blank">Ver PDFs</a>
-                    </div>
+        </div>
+    </header>
+    <div class="container-fluid" style="padding-top: 80px;">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-none d-md-block bg-light sidebar position-sticky top-0">
+                <div class="position-sticky pt-3">
+                    <h2 class="h4 text-center">Asignaturas</h2>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#diseno-digital"><i class="fas fa-paint-brush"></i> Diseño Digital</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#programacion-web"><i class="fas fa-code"></i> Programación Web</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#base-de-datos"><i class="fas fa-database"></i> Base de Datos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#redes"><i class="fas fa-network-wired"></i> Redes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#seguridad"><i class="fas fa-lock"></i> Seguridad Informática</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sistemas-operativos"><i class="fas fa-desktop"></i> Sistemas Operativos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#gestion-de-proyectos"><i class="fas fa-project-diagram"></i> Gestión de Proyectos</a>
+                        </li>
+                    </ul>
                 </div>
-            </section>
-            <!-- Programación Web -->
-            <section id="programacion-web" class="subject-section">
-                <h2>Programación Web</h2>
-                <div class="tools">
-                    <div class="tool">
-                        <h3>HTML & CSS</h3>
-                        <p>Guía de referencia y tutoriales para HTML y CSS.</p>
-                        <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank">HTML</a>
-                        <a href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank">CSS</a>
-                    </div>
-                    <div class="tool">
-                        <h3>JavaScript</h3>
-                        <p>Lenguaje de programación para desarrollo web.</p>
-                        <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank">Visitar</a>
-                    </div>
-                    <div class="tool">
-                        <h3>Frameworks</h3>
-                        <p>Herramientas como React, Angular y Vue.js.</p>
-                        <a href="https://reactjs.org/" target="_blank">React</a>
-                        <a href="https://angular.io/" target="_blank">Angular</a>
-                        <a href="https://vuejs.org/" target="_blank">Vue.js</a>
-                    </div>
-                    <div class="tool">
-                        <h3>Videos Tutoriales</h3>
-                        <a href="https://www.youtube.com/playlist?list=PLu8EoSxDXHP5uyzEWxdlr9WQTJJIzr6jy" target="_blank">Ver Videos</a>
-                    </div>
+            </nav>
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Recursos</h1>
                 </div>
-            </section>
-            <!-- Base de Datos -->
-            <section id="base-de-datos" class="subject-section">
-                <h2>Base de Datos</h2>
-                <div class="tools">
-                    <div class="tool">
-                        <h3>MySQL</h3>
-                        <p>Sistema de gestión de bases de datos relacional.</p>
-                        <a href="https://www.mysql.com/" target="_blank">Visitar</a>
+                <!-- Diseño Digital -->
+                <section id="diseno-digital" class="subject-section mb-4">
+                    <h2 class="h4">Diseño Digital</h2>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" class="card-img-top" alt="Photoshop">
+                                <div class="card-body">
+                                    <h5 class="card-title">Photoshop</h5>
+                                    <p class="card-text">Herramienta de edición de imágenes.</p>
+                                    <a href="https://www.adobe.com/products/photoshop.html" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://th.bing.com/th/id/OIP.1fQzm0cWV2MZIcMpqPjoaQHaHa?rs=1&pid=ImgDetMain" class="card-img-top" alt="Illustrator">
+                                <div class="card-body">
+                                    <h5 class="card-title">Adobe Illustrator</h5>
+                                    <p class="card-text">Herramienta de diseño vectorial.</p>
+                                    <a href="https://www.adobe.com/products/illustrator.html" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://static.vecteezy.com/system/resources/previews/021/963/712/original/adobe-indesign-logo-free-vector.jpg" class="card-img-top" alt="InDesign">
+                                <div class="card-body">
+                                    <h5 class="card-title">InDesign</h5>
+                                    <p class="card-text">Herramienta de diseño y maquetación de páginas.</p>
+                                    <a href="https://www.adobe.com/products/indesign.html" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">CorelDRAW</h5>
+                                    <p class="card-text">Software de diseño gráfico.</p>
+                                    <a href="https://www.coreldraw.com/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sketch</h5>
+                                    <p class="card-text">Herramienta de diseño digital para macOS.</p>
+                                    <a href="https://www.sketch.com/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Videos Tutoriales</h5>
+                                    <a href="https://youtu.be/gWuuK12F_lY" target="_blank" class="btn btn-primary">Ver Videos</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">PDFs</h5>
+                                    <a href="https://www.pdfdrive.com/design-pdf-books.html" target="_blank" class="btn btn-primary">Ver PDFs</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tool">
-                        <h3>PostgreSQL</h3>
-                        <p>Otro potente sistema de gestión de bases de datos relacional.</p>
-                        <a href="https://www.postgresql.org/" target="_blank">Visitar</a>
+                </section>
+                <!-- Programación Web -->
+                <section id="programacion-web" class="subject-section mb-4">
+                    <h2 class="h4">Programación Web</h2>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" class="card-img-top" alt="HTML & CSS">
+                                <div class="card-body">
+                                    <h5 class="card-title">HTML & CSS</h5>
+                                    <p class="card-text">Guía de referencia y tutoriales para HTML y CSS.</p>
+                                    <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank" class="btn btn-primary">HTML</a>
+                                    <a href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank" class="btn btn-primary">CSS</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" class="card-img-top" alt="JavaScript">
+                                <div class="card-body">
+                                    <h5 class="card-title">JavaScript</h5>
+                                    <p class="card-text">Lenguaje de programación para desarrollo web.</p>
+                                    <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Frameworks</h5>
+                                    <p class="card-text">Herramientas como React, Angular y Vue.js.</p>
+                                    <a href="https://reactjs.org/" target="_blank" class="btn btn-primary">React</a>
+                                    <a href="https://angular.io/" target="_blank" class="btn btn-primary">Angular</a>
+                                    <a href="https://vuejs.org/" target="_blank" class="btn btn-primary">Vue.js</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Bootstrap</h5>
+                                    <p class="card-text">Framework CSS para desarrollo web.</p>
+                                    <a href="https://getbootstrap.com/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sass</h5>
+                                    <p class="card-text">Preprocesador CSS.</p>
+                                    <a href="https://sass-lang.com/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Videos Tutoriales</h5>
+                                    <a href="https://www.youtube.com/playlist?list=PLu8EoSxDXHP5uyzEWxdlr9WQTJJIzr6jy" target="_blank" class="btn btn-primary">Ver Videos</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">PDFs</h5>
+                                    <a href="https://www.pdfdrive.com/web-development-pdf-books.html" target="_blank" class="btn btn-primary">Ver PDFs</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tool">
-                        <h3>MongoDB</h3>
-                        <p>Base de datos NoSQL orientada a documentos.</p>
-                        <a href="https://www.mongodb.com/" target="_blank">Visitar</a>
+                </section>
+                <!-- Base de Datos -->
+                <section id="base-de-datos" class="subject-section mb-4">
+                    <h2 class="h4">Base de Datos</h2>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="/img/mysql.png" class="card-img-top" alt="MySQL">
+                                <div class="card-body">
+                                    <h5 class="card-title">MySQL</h5>
+                                    <p class="card-text">Sistema de gestión de bases de datos relacional.</p>
+                                    <a href="https://www.mysql.com/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" class="card-img-top" alt="PostgreSQL">
+                                <div class="card-body">
+                                    <h5 class="card-title">PostgreSQL</h5>
+                                    <p class="card-text">Otro potente sistema de gestión de bases de datos relacional.</p>
+                                    <a href="https://www.postgresql.org/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="img/MONGO.jpeg" class="card-img-top" alt="MongoDB">
+                                <div class="card-body">
+                                    <h5 class="card-title">MongoDB</h5>
+                                    <p class="card-text">Base de datos NoSQL orientada a documentos.</p>
+                                    <a href="https://www.mongodb.com/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">SQLite</h5>
+                                    <p class="card-text">Biblioteca que proporciona un sistema de gestión de bases de datos relacional.</p>
+                                    <a href="https://www.sqlite.org/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">MariaDB</h5>
+                                    <p class="card-text">Sistema de gestión de bases de datos relacional, bifurcado de MySQL.</p>
+                                    <a href="https://mariadb.org/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Videos Tutoriales</h5>
+                                    <a href="https://www.youtube.com/playlist?list=PLsB9iXqIE4usSF1LSu8woZmDWApjipJmA" target="_blank" class="btn btn-primary">Ver Videos</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">PDFs</h5>
+                                    <a href="https://www.pdfdrive.com/database-pdf-books.html" target="_blank" class="btn btn-primary">Ver PDFs</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tool">
-                        <h3>Videos Tutoriales</h3>
-                        <a href="https://www.youtube.com/playlist?list=PLsB9iXqIE4usSF1LSu8woZmDWApjipJmA" target="_blank">Ver Videos</a>
+                </section>
+                <!-- Redes -->
+                <section id="redes" class="subject-section mb-4">
+                    <h2 class="h4">Redes</h2>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://1000logos.net/wp-content/uploads/2016/11/Cisco-logo.png" class="card-img-top" alt="Cisco Packet Tracer">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cisco Packet Tracer</h5>
+                                    <p class="card-text">Simulador de redes de Cisco.</p>
+                                    <a href="https://www.netacad.com/courses/packet-tracer" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg" class="card-img-top" alt="Wireshark">
+                                <div class="card-body">
+                                    <h5 class="card-title">Wireshark</h5>
+                                    <p class="card-text">Analizador de protocolos de red.</p>
+                                    <a href="https://www.wireshark.org/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">NetSim</h5>
+                                    <p class="card-text">Simulador de redes para prácticas de laboratorio.</p>
+                                    <a href="https://www.boson.com/netsim-cisco-network-simulator" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">GNS3</h5>
+                                    <p class="card-text">Simulador de redes que permite combinar dispositivos reales y virtuales.</p>
+                                    <a href="https://www.gns3.com/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">OpenWrt</h5>
+                                    <p class="card-text">Firmware para routers que permite configuraciones avanzadas.</p>
+                                    <a href="https://openwrt.org/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Videos Tutoriales</h5>
+                                    <a href="https://www.youtube.com/playlist?list=PLmM9ZGbBkjf3Tfe87A8aV0R3Dxc7PykX1" target="_blank" class="btn btn-primary">Ver Videos</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">PDFs</h5>
+                                    <a href="https://www.pdfdrive.com/networking-pdf-books.html" target="_blank" class="btn btn-primary">Ver PDFs</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </section>
-            <!-- Redes -->
-            <section id="redes" class="subject-section">
-                <h2>Redes</h2>
-                <div class="tools">
-                    <div class="tool">
-                        <h3>Cisco Packet Tracer</h3>
-                        <p>Simulador de redes de Cisco.</p>
-                        <a href="https://www.netacad.com/courses/packet-tracer" target="_blank">Visitar</a>
+                </section>
+                <!-- Seguridad Informática -->
+                <section id="seguridad" class="subject-section mb-4">
+                    <h2 class="h4">Seguridad Informática</h2>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://logowik.com/content/uploads/images/kali-linux2962.jpg" class="card-img-top" alt="Kali Linux">
+                                <div class="card-body">
+                                    <h5 class="card-title">Kali Linux</h5>
+                                    <p class="card-text">Distribución de Linux para pruebas de penetración y seguridad informática.</p>
+                                    <a href="https://www.kali.org/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Nmap_logo.svg" class="card-img-top" alt="Nmap">
+                                <div class="card-body">
+                                    <h5 class="card-title">Nmap</h5>
+                                    <p class="card-text">Escáner de red.</p>
+                                    <a href="https://nmap.org/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Metasploit</h5>
+                                    <p class="card-text">Herramienta de pruebas de penetración.</p>
+                                    <a href="https://www.metasploit.com/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Burp_Suite_Logo.png" class="card-img-top" alt="Burp Suite">
+                                <div class="card-body">
+                                    <h5 class="card-title">Burp Suite</h5>
+                                    <p class="card-text">Plataforma de pruebas de seguridad de aplicaciones web.</p>
+                                    <a href="https://portswigger.net/burp" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Wireshark</h5>
+                                    <p class="card-text">Analizador de protocolos de red.</p>
+                                    <a href="https://www.wireshark.org/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Videos Tutoriales</h5>
+                                    <a href="https://www.youtube.com/playlist?list=PLBf0hzazHTGMbELfiC5SlF3D-gWtSg8WK" target="_blank" class="btn btn-primary">Ver Videos</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">PDFs</h5>
+                                    <a href="https://www.pdfdrive.com/cyber-security-pdf-books.html" target="_blank" class="btn btn-primary">Ver PDFs</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tool">
-                        <h3>Wireshark</h3>
-                        <p>Analizador de protocolos de red.</p>
-                        <a href="https://www.wireshark.org/" target="_blank">Visitar</a>
+                </section>
+                <!-- Sistemas Operativos -->
+                <section id="sistemas-operativos" class="subject-section mb-4">
+                    <h2 class="h4">Sistemas Operativos</h2>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" class="card-img-top" alt="Linux">
+                                <div class="card-body">
+                                    <h5 class="card-title">Linux</h5>
+                                    <p class="card-text">Sistema operativo de código abierto.</p>
+                                    <a href="https://www.linux.org/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Microsoft_logo_(2012).svg" class="card-img-top" alt="Windows">
+                                <div class="card-body">
+                                    <h5 class="card-title">Windows</h5>
+                                    <p class="card-text">Sistema operativo de Microsoft.</p>
+                                    <a href="https://www.microsoft.com/es-es/windows/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/MacOS_wordmark_(2017).svg" class="card-img-top" alt="MacOS">
+                                <div class="card-body">
+                                    <h5 class="card-title">MacOS</h5>
+                                    <p class="card-text">Sistema operativo de Apple.</p>
+                                    <a href="https://www.apple.com/macos/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ubuntu</h5>
+                                    <p class="card-text">Distribución de Linux basada en Debian.</p>
+                                    <a href="https://ubuntu.com/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Fedora</h5>
+                                    <p class="card-text">Distribución de Linux desarrollada por la comunidad.</p>
+                                    <a href="https://getfedora.org/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Videos Tutoriales</h5>
+                                    <a href="https://www.youtube.com/playlist?list=PLS1QulWo1RIaUGP446_pWLgTZPiFizEMq" target="_blank" class="btn btn-primary">Ver Videos</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">PDFs</h5>
+                                    <a href="https://www.pdfdrive.com/operating-systems-pdf-books.html" target="_blank" class="btn btn-primary">Ver PDFs</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tool">
-                        <h3>Videos Tutoriales</h3>
-                        <a href="https://www.youtube.com/playlist?list=PLmM9ZGbBkjf3Tfe87A8aV0R3Dxc7PykX1" target="_blank">Ver Videos</a>
+                </section>
+                <!-- Gestión de Proyectos -->
+                <section id="gestion-de-proyectos" class="subject-section mb-4">
+                    <h2 class="h4">Gestión de Proyectos</h2>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Microsoft_Project_2019_logo.svg" class="card-img-top" alt="MS Project">
+                                <div class="card-body">
+                                    <h5 class="card-title">MS Project</h5>
+                                    <p class="card-text">Herramienta de gestión de proyectos de Microsoft.</p>
+                                    <a href="https://www.microsoft.com/es-es/microsoft-365/project/project-management-software" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Asana_logo.svg" class="card-img-top" alt="Asana">
+                                <div class="card-body">
+                                    <h5 class="card-title">Asana</h5>
+                                    <p class="card-text">Herramienta de gestión de proyectos y tareas.</p>
+                                    <a href="https://asana.com/es" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <img src="https://upload.wikimedia.org/wikipedia/en/8/8c/Trello_logo.svg" class="card-img-top" alt="Trello">
+                                <div class="card-body">
+                                    <h5 class="card-title">Trello</h5>
+                                    <p class="card-text">Herramienta de gestión de proyectos basada en tableros.</p>
+                                    <a href="https://trello.com/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Basecamp</h5>
+                                    <p class="card-text">Herramienta de colaboración y gestión de proyectos.</p>
+                                    <a href="https://basecamp.com/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">ClickUp</h5>
+                                    <p class="card-text">Herramienta de gestión de tareas y proyectos.</p>
+                                    <a href="https://clickup.com/" target="_blank" class="btn btn-primary">Visitar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Videos Tutoriales</h5>
+                                    <a href="https://www.youtube.com/playlist?list=PLVCgi5HZRNhZcuFf9Mq0QSlB3QgyfiIFs" target="_blank" class="btn btn-primary">Ver Videos</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">PDFs</h5>
+                                    <a href="https://www.pdfdrive.com/project-management-pdf-books.html" target="_blank" class="btn btn-primary">Ver PDFs</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tool">
-                        <h3>PDFs</h3>
-                        <a href="https://www.pdfdrive.com/networking-pdf-books.html" target="_blank">Ver PDFs</a>
-                    </div>
-                </div>
-            </section>
-            <!-- Seguridad Informática -->
-            <section id="seguridad" class="subject-section">
-                <h2>Seguridad Informática</h2>
-                <div class="tools">
-                    <div class="tool">
-                        <h3>Kali Linux</h3>
-                        <p>Distribución de Linux para pruebas de penetración y seguridad informática.</p>
-                        <a href="https://www.kali.org/" target="_blank">Visitar</a>
-                    </div>
-                    <div class="tool">
-                        <h3>Nmap</h3>
-                        <p>Escáner de red.</p>
-                        <a href="https://nmap.org/" target="_blank">Visitar</a>
-                    </div>
-                    <div class="tool">
-                        <h3>Videos Tutoriales</h3>
-                        <a href="https://www.youtube.com/playlist?list=PLBf0hzazHTGMbELfiC5SlF3D-gWtSg8WK" target="_blank">Ver Videos</a>
-                    </div>
-                    <div class="tool">
-                        <h3>PDFs</h3>
-                        <a href="https://www.pdfdrive.com/cyber-security-pdf-books.html" target="_blank">Ver PDFs</a>
-                    </div>
-                </div>
-            </section>
-            <!-- Sistemas Operativos -->
-            <section id="sistemas-operativos" class="subject-section">
-                <h2>Sistemas Operativos</h2>
-                <div class="tools">
-                    <div class="tool">
-                        <h3>Linux</h3>
-                        <p>Sistema operativo de código abierto.</p>
-                        <a href="https://www.linux.org/" target="_blank">Visitar</a>
-                    </div>
-                    <div class="tool">
-                        <h3>Windows</h3>
-                        <p>Sistema operativo de Microsoft.</p>
-                        <a href="https://www.microsoft.com/es-es/windows/" target="_blank">Visitar</a>
-                    </div>
-                    <div class="tool">
-                        <h3>MacOS</h3>
-                        <p>Sistema operativo de Apple.</p>
-                        <a href="https://www.apple.com/macos/" target="_blank">Visitar</a>
-                    </div>
-                    <div class="tool">
-                        <h3>Videos Tutoriales</h3>
-                        <a href="https://www.youtube.com/playlist?list=PLS1QulWo1RIaUGP446_pWLgTZPiFizEMq" target="_blank">Ver Videos</a>
-                    </div>
-                </div>
-            </section>
-            <!-- Gestión de Proyectos -->
-            <section id="gestion-de-proyectos" class="subject-section">
-                <h2>Gestión de Proyectos</h2>
-                <div class="tools">
-                    <div class="tool">
-                        <h3>MS Project</h3>
-                        <p>Herramienta de gestión de proyectos de Microsoft.</p>
-                        <a href="https://www.microsoft.com/es-es/microsoft-365/project/project-management-software" target="_blank">Visitar</a>
-                    </div>
-                    <div class="tool">
-                        <h3>Asana</h3>
-                        <p>Herramienta de gestión de proyectos y tareas.</p>
-                        <a href="https://asana.com/es" target="_blank">Visitar</a>
-                    </div>
-                    <div class="tool">
-                        <h3>Trello</h3>
-                        <p>Herramienta de gestión de proyectos basada en tableros.</p>
-                        <a href="https://trello.com/" target="_blank">Visitar</a>
-                    </div>
-                    <div class="tool">
-                        <h3>Videos Tutoriales</h3>
-                        <a href="https://www.youtube.com/playlist?list=PLVCgi5HZRNhZcuFf9Mq0QSlB3QgyfiIFs" target="_blank">Ver Videos</a>
-                    </div>
-                    <div class="tool">
-                        <h3>PDFs</h3>
-                        <a href="https://www.pdfdrive.com/project-management-pdf-books.html" target="_blank">Ver PDFs</a>
-                    </div>
-                </div>
-            </section>
-        </main>
+                </section>
+            </main>
+        </div>
     </div>
-    <footer>
-        <span>Derechos reservados ©</span>
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <div class="row desktop-footer">
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <p>info@eduxplore.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Redes Sociales</h5>
+                    <p>
+                        <a href="#" class="text-white"><i class="fab fa-facebook"></i> Facebook</a><br>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i> Twitter</a><br>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i> Instagram</a>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Enlaces Útiles</h5>
+                    <p>
+                        <a href="#" class="text-white">Política de Privacidad</a><br>
+                        <a href="#" class="text-white">Términos y Condiciones</a><br>
+                        <a href="#" class="text-white">FAQ</a>
+                    </p>
+                </div>
+            </div>
+            <div class="mobile-footer">
+                <p>Derechos reservados © 2024 EduXplore</p>
+            </div>
+        </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
